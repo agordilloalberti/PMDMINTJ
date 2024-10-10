@@ -15,12 +15,12 @@ fun main(){
 
             "1" -> {
                 println("Introduzca el nombre del objeto a añadir")
-                println(i.addItem(sc.nextLine().toLowerCase()))
+                println(i.addItem(sc.nextLine().lowercase()))
             }
 
             "2"->{
                 println("Introduzca el nombre del objeto a borrar")
-                println(i.removeItem(sc.nextLine().toLowerCase()))
+                println(i.removeItem(sc.nextLine().lowercase()))
             }
 
             "3"-> println(i.showInventory())
