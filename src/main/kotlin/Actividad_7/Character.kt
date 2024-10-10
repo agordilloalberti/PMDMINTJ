@@ -7,7 +7,7 @@ class Character(val nombre: String, var vida:Double, var ataque: Double, var viv
         if (vivo) {
             if (c.vivo) {
                 s += c.receiveDamage(this.ataque)
-                return "El combatiente $nombre ataca a ${c.nombre} por $ataque \n" + s
+                return "El combatiente $nombre ataca a ${c.nombre} por $ataque de daño\n" + s
             }
             return "El combatiente ${c.nombre} ya ha caido"
         }
