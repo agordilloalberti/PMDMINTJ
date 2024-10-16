@@ -1,4 +1,4 @@
-package Actividad_7
+package ActividadesIniciales.Actividad_7
 
 class Character(val nombre: String, var vida:Double, var ataque: Double, var vivo: Boolean = true) {
 

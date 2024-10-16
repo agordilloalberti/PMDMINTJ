@@ -1,4 +1,4 @@
-package Actividad_9
+package ActividadesIniciales.Actividad_9
 
 class Character(val nombre:String) {
     private var nivel = 1

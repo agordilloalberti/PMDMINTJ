@@ -1,4 +1,4 @@
-package Actividad_8
+package ActividadesIniciales.Actividad_8
 
 class Inventario {
     val inventario = arrayListOf<String>()

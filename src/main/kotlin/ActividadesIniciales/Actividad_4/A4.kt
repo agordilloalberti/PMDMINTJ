@@ -1,4 +1,4 @@
-package Actividad_4
+package ActividadesIniciales.Actividad_4
 
 fun main(){
     var monedas=0

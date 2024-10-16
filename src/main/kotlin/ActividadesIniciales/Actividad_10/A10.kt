@@ -1,4 +1,4 @@
-package Actividad_10
+package ActividadesIniciales.Actividad_10
 
 fun main(){
     val h1 = Hero("Lufirio",10)

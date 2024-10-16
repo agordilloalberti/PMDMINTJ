@@ -1,4 +1,4 @@
-package Actividad_2
+package ActividadesIniciales.Actividad_2
 
 fun main(){
     val vida=100

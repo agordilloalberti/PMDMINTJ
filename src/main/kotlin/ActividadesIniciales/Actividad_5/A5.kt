@@ -1,4 +1,4 @@
-package Actividad_5
+package ActividadesIniciales.Actividad_5
 
 import java.util.Scanner
 

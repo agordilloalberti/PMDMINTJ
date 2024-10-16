@@ -1,4 +1,4 @@
-package Actividad_10
+package ActividadesIniciales.Actividad_10
 
 class Enemy(var nombre:String) {
     var health=500

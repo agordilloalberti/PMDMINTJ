@@ -1,10 +1,10 @@
-package Actividad_7
+package ActividadesIniciales.Actividad_7
 
 fun main(){
 
-    var c1 = Character("A",10.0,10.0)
-    var c2 = Character("B",20.0,4.5)
-    var w:Character
+    var c1 = Character("A", 10.0, 10.0)
+    var c2 = Character("B", 20.0, 4.5)
+    var w: Character
 
     while (true){
         println(c1.attack(c2))
