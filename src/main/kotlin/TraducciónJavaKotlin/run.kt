@@ -55,12 +55,19 @@ fun ej5(){
 }
 
 fun ej7(){
+    /**
+     * (Nota para el profe: no se de lambdas en genral asi que esto van a sr triples y conjeturas para hacero real)
+     * Las lambdas en java son mas complejas de obtener al necesitar que la varible tenga un tipo de dato
+     * por culpa de este hecho se debe crear una clase o interfaz para darle ese tipo de dato,
+     * en kotlin, al omitir este hecho se es capaz de crear lambdas sin la necesidad de un recurso externo
+     */
     fun multiplicar(num:Int): Int {
         return num*2
     }
 
     println(multiplicar(5))
-    var operacion
+    var operacion: (Int,Int) -> Int = {x,y -> x + y}
+    println(operacion(3,4))
 }
 
 fun ejercicioFinal(){
