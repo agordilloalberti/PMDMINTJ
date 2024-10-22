@@ -66,7 +66,7 @@ fun ej7(){
     }
 
     println(multiplicar(5))
-    var operacion: (Int,Int) -> Int = {x,y -> x + y}
+    val operacion: (Int,Int) -> Int = {x,y -> x + y}
     println(operacion(3,4))
 }
 
