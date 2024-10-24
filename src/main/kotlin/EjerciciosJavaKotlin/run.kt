@@ -2,11 +2,68 @@ package EjerciciosJavaKotlin
 
 import Ayudas
 import java.lang.Exception
+import java.util.Scanner
 import kotlin.math.pow
 import kotlin.math.roundToInt
 
 private fun main(){
-    ej12()
+    println("Ejercicios del tema 2 por Álvaro Gordillo Suano")
+    val sc=Ayudas.sc
+    do {
+        println("Escriba unicamente el número del ejercicio que desea comprobar, \"0\" para salir\"")
+        val op = sc.nextLine()
+        when (op) {
+            "1" -> {
+                ej1()
+            }
+            "2" -> {
+                ej2()
+            }
+            "3" -> {
+                ej3()
+            }
+            "4" -> {
+                ej4()
+            }
+            "5" -> {
+                ej5()
+            }
+            "6" -> {
+                ej6()
+            }
+            "7" -> {
+                ej7()
+            }
+            "8" -> {
+                ej8()
+            }
+            "9" -> {
+                ej9()
+            }
+            "10" -> {
+                ej10()
+            }
+            "11" -> {
+                ej11()
+            }
+            "12" -> {
+                ej12()
+            }
+            "13" -> {
+                ej13()
+            }
+            "14" -> {
+                ej14()
+            }
+            "0" -> {
+                println("Ten un buen dia despues de comprobar mi arte ;)")
+            }
+            else -> {
+                println("Opción no válida, intentelo otra vez")
+            }
+        }
+    }while (op!="0")
+    println("Fin")
 }
 
 fun ej1(){
@@ -31,7 +88,6 @@ fun ej2(){
     }catch(e : Exception){
         println("Debe introducir un número entero")
     }
-    println("Fin")
 }
 
 fun ej3(){
@@ -41,9 +97,9 @@ fun ej3(){
     try {
         val radio = radioS.toDouble()
         val res = Ayudas.round(Math.PI* radio.pow(2),2)
-        println("El área de su circulo es: $res\nFin")
+        println("El área de su circulo es: $res")
     }catch (e:Exception){
-        println("Debe introducir un número\nFin")
+        println("Debe introducir un número")
     }
 }
 
@@ -67,7 +123,7 @@ fun ej4(){
             op=-1
         }
     }while (op!=num)
-    println("Exacto el número era $num, enhorabuena ¡has ganado!")
+    println("Exacto el número era $num, enhorabuena ¡Has ganado!")
 }
 
 fun ej5(){
@@ -82,7 +138,6 @@ fun ej5(){
     }catch (e:Exception){
         println("Debe introducir un número entero")
     }
-    println("Fin")
 }
 
 fun ej6(){
@@ -143,7 +198,6 @@ fun ej9(){
     }catch (e:Exception){
         println("Tiene que introducir un número entero")
     }
-    println("Fin")
 }
 
 fun ej10(){
@@ -153,14 +207,16 @@ fun ej10(){
         println("Debe elegir uno de los dos tipos de conversión admitidos, de Celsius a Fahrenheit (F) o viceversa (C)")
         o = sc.nextLine().uppercase()[0]
     }while(o!='F' && o!='C')
+
     println("Indique los grados $o")
     val gradosS = sc.nextLine()
+
     try {
         val r :Double
         val grados = gradosS.toDouble()
 
         if (o=='C'){
-            r=(grados-32)*(5/9)
+            r=(grados-32)*5/9
         }else{
             r=grados*9/5+32
         }
@@ -168,7 +224,6 @@ fun ej10(){
     }catch (e:Exception){
         println("Debe introducir un número")
     }
-    println("Fin")
 }
 
 fun ej11(){
@@ -186,7 +241,6 @@ fun ej11(){
     }catch (e:Exception){
         println("Debe introducir un número entero")
     }
-    println("Fin")
 }
 
 fun ej12(){
@@ -227,15 +281,68 @@ fun ej14(){
         val horasJugadas:Double
     ){
         override fun toString(): String {
-            return "El juego: $titulo, esta disponible en $plataforma y llevas $horasJugadas horas jugadas"
+            return "El juego: $titulo, esta disponible en $plataforma y llevas $horasJugadas horas jugadas\n"
         }
+    }
+
+    fun crearJuego(sc:Scanner,i:MutableList<Videojuego>):String{
+        println("Introduzca el nombre del juego")
+        val n = sc.nextLine()
+        println("Introduzca la plataforma en la que se puede jugar al juego")
+        val p = sc.nextLine()
+        println("Introduzca las horas jugadas")
+        val hS = sc.nextLine()
+        var r:String
+        try {
+            val h = hS.toDouble()
+            i.add(Videojuego(n,p,h))
+            r = "Se ha añadido el juego con exito\n"
+        }catch (e:Exception){
+            r = "Se ha introducido un valor incorrecto, el juego no ha sido añadido\n"
+        }
+        return r
+    }
+
+    fun eliminarJuego(sc:Scanner, inventario:MutableList<Videojuego>):String{
+        println("Introduzca el nombre del juego a eliminar")
+        val n = sc.nextLine()
+        var r = "No se ha encontrado el juego\n"
+        for (i in inventario){
+            if (i.titulo.lowercase()==n.lowercase()){
+                inventario.remove(i)
+                r="El juego ${i.titulo} ha sido eliminado del inventario\n"
+                break
+            }
+        }
+        return r
     }
 
     val inventario = mutableListOf<Videojuego>()
     var op :String
     val sc = Ayudas.sc
     do {
-        println("¿Que desea hacer?\n 1.Añadir un juego.\n2.Eliminar un juego.\n3.Mostrar el inventario.\n0.Salir")
+        println("¿Que desea hacer?\n1.Añadir un juego.\n2.Eliminar un juego.\n3.Mostrar el inventario.\n0.Salir")
         op=sc.nextLine()
+        if (op=="1"){
+            println(crearJuego(sc,inventario))
+        } else if (op=="2"){
+            if (inventario.isNotEmpty()){
+                println(eliminarJuego(sc,inventario))
+            } else{
+                println("No hay ningun juego guardado\n")
+            }
+        } else if (op=="3"){
+            if (inventario.isNotEmpty()) {
+                for (i in inventario) {
+                    println(i)
+                }
+            }else{
+                println("No hay juegos juardados\n")
+            }
+        } else if (op=="0"){
+            println("Gracias por usar esta aplicación, adiós")
+        }else{
+            println("opción no valida, introduzca un valor apropiado\n")
+        }
     }while (op!="0")
 }
